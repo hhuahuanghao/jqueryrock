@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link type="text/css" href="css/jquery-ui-1.9.2.custom.css" rel="stylesheet" /> 
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.js"></script> 
+
+<script>
+	$(function(){
+	  	 $('.headUl > li').hover(
+			function(){
+				var ulElem = $(this).find('.childUl');
+				$(ulElem).show();
+			},
+			function(){
+				$(this).find('.childUl').hide();
+			}
+		);
+	});
+
+</script>
+<style type='text/css'>
+.headUl > li{
+ float: left;
+ list-style: none;
+ cursor: pointer;
+ line-height: 2em;
+}
+.childUl{
+ display: none;
+ position: fixed;
+ z-index: 1000;
+ padding: 0;
+ margin: 0;
+}
+.childUl > li{
+ list-style: none;
+ margin: 10px;
+ font-weight: normal;
+}
+.childUl > li:hover{
+ text-decoration:underline;
+ font-weight: bold;
+}
+.menuHeaderText{
+ font-size:20px;
+ margin-left: 10px;
+}
+
+.menuIcon{
+ float: right;
+ margin-top: 8px;
+ margin-right: 5px;
+ vertical-align: text-top;
+}
+#topMenuDiv{
+ background-image:url('menu-background.png');
+}   
+
+</style>
+</head>
+<body >
+ <div id='topMenuDiv'>
+   <ul class='headUl'>
+	<li class='ui-widget-header ui-corner-left'>
+  		<span class='menuHeaderText'>First</span>
+		<span class='ui-icon ui-icon-triangle-1-s menuIcon'></span>
+		<ul class='childUl ui-widget-content'>
+			<li>Java Text</li>
+			<li>Solr Search</li>
+			<li>SolrJ example</li>
+			<li>abc</li>
+		</ul>
+	</li>
+	<li class='ui-widget-header' >
+		<span class='menuHeaderText'>Second</span>
+		<span class='ui-icon ui-icon-triangle-1-s menuIcon'></span>
+		<ul class='childUl ui-widget-content'>
+			<li>Sample 123</li>
+			<li>Example Data To</li>
+			<li>Web Application</li>
+			<li>abc</li>
+		</ul>
+	</li>
+	<li class='ui-widget-header ui-corner-right' >
+		<span class='menuHeaderText'>Third</span>
+		<span class='ui-icon ui-icon-triangle-1-s menuIcon'></span>
+		<ul class='childUl ui-widget-content'>
+			<li>Dummy Data</li>
+			<li>Odd coded Data</li>
+			<li>Example Data To</li>
+			<li>abc</li>
+		</ul>
+	</li>
+   </ul>
+</div>
+
+</body>
+</html>
