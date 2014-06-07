@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link type="text/css" href="css/jquery-ui-1.9.2.custom.css"
+	rel="stylesheet" />
+<link type="text/css" href="css/prettify.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.js"></script>
+<script type="text/javascript" src="js/prettify.js"></script>
+
+<!-- Specific To DEMO -->
+<link type="text/css" href="jqgrid/css/ui.jqgrid.css" rel="stylesheet" />
+<script src="jqgrid/js/grid.locale-en.js" type="text/javascript"></script>
+<script src="jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+
+<script>
+	$(function() {
+		$('#demoButton,#sourceButton').click(function() {
+			$('.contentDiv').hide();
+			var divId = $(this).attr("id") + "Div";
+			$('#'+divId).show();
+		});
+		$('#downloadButton').click(function(){
+			downloadURL('http://jqueryrock.googlecode.com/svn/trunk/zip/JqGridExample.zip');
+		});
+		$('#newWindowButton').click(function(){
+			window.open(window.location.href, '_blank');		
+		});
+	});
+	
+	function downloadURL(url) {
+	    var hiddenIFrameID = 'hiddenDownloader',
+	        iframe = document.getElementById(hiddenIFrameID);
+	    if (iframe === null) {
+	        iframe = document.createElement('iframe');
+	        iframe.id = hiddenIFrameID;
+	        iframe.style.display = 'none';
+	        document.body.appendChild(iframe);
+	    }
+	    iframe.src = url;
+	};
+</script>
+
+<script type="text/javascript">
+	$(function() {
+		$("#list").jqGrid({
+			url : "jqgrid/data.json",
+			datatype : "json",
+			mtype : "GET",
+			colNames : [ "Inv No", "Date", "Amount", "Tax", "Total", "Notes" ],
+			colModel : [ {
+				name : "invid",
+				sortable : false
+			}, {
+				name : "invdate",
+				sortable : false
+			}, {
+				name : "amount",
+				align : "right",
+				sortable : false
+			}, {
+				name : "tax",
+				align : "right",
+				sortable : false
+			}, {
+				name : "total",
+				align : "right",
+				sortable : false
+			}, {
+				name : "note",
+				sortable : false
+			} ],
+			pager : "#pager",
+			rowNum : 5,
+			rownumbers : true,
+			rowList : [ 5, 10, 15 ],
+			height : 'auto',
+			width : '500',
+			loadonce : true,
+			caption : "My first grid"
+		});
+	});
+</script>
+<style type='text/css'>
+.contentDiv{
+	padding: 5px;
+}
+#demoButton{
+	margin-left: 2px;
+}
+</style>
+</head>
+<body>
+	<div class='ui-widget-content ui-corner-all' style='padding:2px;'>
+		<div class='ui-widget-header ui-corner-all'>
+			<button type="button" id="demoButton">Demo</button>
+			<button type="button" id="sourceButton">Source</button>
+			<button type="button" id="downloadButton">Download Example</button>
+			<button type="button" id="newWindowButton">Open in New
+				Window</button>
+		</div>
+		<div id='demoButtonDiv' class="contentDiv">
+			<table id="list">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+			<div id="pager"></div>
+		</div>
+		<div id='sourceButtonDiv' class="contentDiv" style="display:none">
+			<pre class='prettyprint lang-js'>
+$(function () {
+    $("#list").jqGrid({
+        url: "data.json",
+        datatype: "json",
+        mtype: "GET",
+        colNames: ["Inv No", "Date", "Amount", "Tax", "Total", "Notes"],
+        colModel: [
+            { name: "invid",sortable: false },
+            { name: "invdate", sortable: false},
+            { name: "amount", align: "right",sortable: false },
+            { name: "tax", align: "right",sortable: false },
+            { name: "total", align: "right",sortable: false },
+            { name: "note", sortabl e: false }
+        ],
+        pager: "#pager",
+        rowNum: 5,
+        rownumbers: true,
+        rowList: [5, 10, 15],
+        height: 'auto',
+        width: '500',
+        loadonce: true,
+        caption: "My first grid"
+    }); 
+}); 
+		</pre>
+		</div>
+
+	</div>
+
+</body>
+</html>
