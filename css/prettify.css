@@ -94,3 +94,8 @@ li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 {
 li.L1,li.L3,li.L5,li.L7,li.L9 {
 	background: #eee
 }
+
+code{
+	background-color: #EEEEEE;
+    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+}
