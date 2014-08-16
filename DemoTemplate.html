@@ -50,25 +50,31 @@
 			colNames : [ "Inv No", "Date", "Amount", "Tax", "Total", "Notes" ],
 			colModel : [ {
 				name : "invid",
-				sortable : false
+				index: "invid",
+				sortable : true
 			}, {
 				name : "invdate",
-				sortable : false
+				index: "invdate",
+				sortable : true
 			}, {
 				name : "amount",
+				index: "amount",
 				align : "right",
-				sortable : false
+				sortable : true
 			}, {
 				name : "tax",
+				index: "tax",
 				align : "right",
-				sortable : false
+				sortable : true
 			}, {
 				name : "total",
+				index: "total",
 				align : "right",
-				sortable : false
+				sortable : true
 			}, {
 				name : "note",
-				sortable : false
+				index: "note",
+				sortable : true
 			} ],
 			pager : "#pager",
 			rowNum : 5,
@@ -77,7 +83,7 @@
 			height : 'auto',
 			width : '500',
 			loadonce : true,
-			caption : "My first grid"
+			caption : "Simple first grid"
 		});
 	});
 </script>
@@ -111,30 +117,50 @@
 		</div>
 		<div id='sourceButtonDiv' class="contentDiv" style="display:none">
 			<pre class='prettyprint lang-js'>
-$(function () {
-    $("#list").jqGrid({
-        url: "data.json",
-        datatype: "json",
-        mtype: "GET",
-        colNames: ["Inv No", "Date", "Amount", "Tax", "Total", "Notes"],
-        colModel: [
-            { name: "invid",sortable: false },
-            { name: "invdate", sortable: false},
-            { name: "amount", align: "right",sortable: false },
-            { name: "tax", align: "right",sortable: false },
-            { name: "total", align: "right",sortable: false },
-            { name: "note", sortabl e: false }
-        ],
-        pager: "#pager",
-        rowNum: 5,
-        rownumbers: true,
-        rowList: [5, 10, 15],
-        height: 'auto',
-        width: '500',
-        loadonce: true,
-        caption: "My first grid"
-    }); 
-}); 
+$(function() {
+		$("#list").jqGrid({
+			url : "jqgrid/data.json",
+			datatype : "json",
+			mtype : "GET",
+			colNames : [ "Inv No", "Date", "Amount", "Tax", "Total", "Notes" ],
+			colModel : [ {
+				name : "invid",
+				index: "invid",
+				sortable : true
+			}, {
+				name : "invdate",
+				index: "invdate",
+				sortable : true
+			}, {
+				name : "amount",
+				index: "amount",
+				align : "right",
+				sortable : true
+			}, {
+				name : "tax",
+				index: "tax",
+				align : "right",
+				sortable : true
+			}, {
+				name : "total",
+				index: "total",
+				align : "right",
+				sortable : true
+			}, {
+				name : "note",
+				index: "note",
+				sortable : true
+			} ],
+			pager : "#pager",
+			rowNum : 5,
+			rownumbers : true,
+			rowList : [ 5, 10, 15 ],
+			height : 'auto',
+			width : '500',
+			loadonce : true,
+			caption : "Simple first grid"
+		});
+	});
 		</pre>
 		</div>
 
